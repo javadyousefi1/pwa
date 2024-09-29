@@ -10,7 +10,6 @@ function openCreatePostModal() {
       console.log("res", res)
       if (res.outcome === "dismissed") {
         console.log("notOk", err)
-
       } else {
         console.log("ok", res)
       }
