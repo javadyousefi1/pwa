@@ -4,6 +4,20 @@ var closeCreatePostModalButton = document.querySelector('#close-create-post-moda
 
 function openCreatePostModal() {
   createPostArea.style.display = 'block';
+  if (defferPrompt) {
+    defferPrompt.prompt();
+    defferPrompt.userChoice.then(res => {
+      console.log("res", res)
+      if (res.outcome === "dismissed") {
+        console.log("notOk", err)
+
+      } else {
+        console.log("ok", res)
+      }
+    })
+
+    defferPrompt = null 
+  }
 }
 
 function closeCreatePostModal() {

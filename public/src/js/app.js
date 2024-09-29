@@ -1,3 +1,5 @@
+var defferPrompt;
+
 if ("serviceWorker" in navigator) {
     // scope based on the routes your want be pwa
     navigator.serviceWorker.register("/sw.js", { scope: "/" }).then((res) => {
@@ -6,3 +8,10 @@ if ("serviceWorker" in navigator) {
         console.log("serviceWorker crashed", err)
     })
 }
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    console.log("before install prompt", e)
+    e.preventDefault()
+    defferPrompt = e
+    return false
+})
